@@ -5,11 +5,17 @@ import android.content.Intent
 import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.widget.Button
 import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity() {
+    val handler = Handler(Looper.getMainLooper()){
+
+        true
+    }
     var timerBinder : TimerService.TimerBinder? = null
     val serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
